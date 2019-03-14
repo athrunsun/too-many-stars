@@ -11,7 +11,7 @@ const config: webpack.Configuration = webpackMerge(webpackBaseConfig, {
         filename: '[name].[contenthash].bundle.js',
         chunkFilename: '[id].[contenthash].bundle.js',
         path: PATHS.appBuildOutput,
-        publicPath: '/',
+        publicPath: '/oh-my-stars',
     },
 
     mode: 'production',
