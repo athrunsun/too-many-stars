@@ -1,4 +1,3 @@
-import * as lodash from 'lodash';
 import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -13,7 +12,7 @@ const config: webpack.Configuration = webpackMerge(webpackBaseConfig, {
         filename: '[name].[hash].bundle.js',
         chunkFilename: '[id].[hash].bundle.js',
         path: PATHS.appBuildOutput,
-        publicPath: lodash.isEmpty(CONFIG.BASE_URL) ? '/' : CONFIG.BASE_URL,
+        publicPath: CONFIG.PUBLIC_PATH,
         pathinfo: true,
     },
 

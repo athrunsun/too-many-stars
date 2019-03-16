@@ -1,3 +1,4 @@
+import * as lodash from 'lodash';
 import * as debug from 'debug';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -29,6 +30,7 @@ const CONFIG = {
     API_PREFIX: process.env.API_PREFIX!,
     API_TARGET: process.env.API_TARGET!,
     BASE_URL: process.env.BASE_URL,
+    PUBLIC_PATH: lodash.isEmpty(process.env.BASE_URL) ? '/' : (process.env.BASE_URL as string),
 };
 
 const REQUIRED_CONFIG_KEYS = ['ENABLE_MOCK', 'API_PREFIX', 'API_TARGET'];

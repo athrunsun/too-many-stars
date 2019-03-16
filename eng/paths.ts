@@ -17,6 +17,9 @@ const PATHS = {
     tsConfigApp: resolveApp('tsconfig.app.json'),
     tsConfigTest: resolveApp('tsconfig.test.json'),
     tsConfigWebpack: resolveApp('tsconfig.webpack.json'),
+    assetsPath: 'assets',
+    imageAssetsPath: path.join('assets', 'img'),
+    fontAssetsPath: path.join('assets', 'font'),
 };
 
 export { PATHS };
