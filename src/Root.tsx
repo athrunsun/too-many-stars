@@ -1,3 +1,4 @@
+import * as lodash from 'lodash';
 import * as React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { cssRaw } from 'typestyle';
@@ -25,7 +26,7 @@ cssRaw(`
 class Root extends React.Component {
     public render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter {...!lodash.isEmpty(process.env.APP_BASE_URL) && { basename: process.env.APP_BASE_URL }}>
                 <Switch>
                     <Redirect
                         exact={true}

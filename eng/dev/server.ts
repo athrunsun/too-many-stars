@@ -1,3 +1,4 @@
+import * as lodash from 'lodash';
 import * as debug from 'debug';
 import * as express from 'express';
 import * as webpack from 'webpack';
@@ -29,16 +30,20 @@ if (CONFIG.ENABLE_MOCK) {
     applyApiMocks(app);
 }
 
-app.use(history());
-
 app.use(
-    webpackDevMiddleware(compiler, {
-        stats: {
-            colors: true,
-        },
-        publicPath: webpackConfig.output!.publicPath!,
+    history({
+        index: lodash.isEmpty(CONFIG.BASE_URL) ? '/index.html' : `${CONFIG.BASE_URL}/index.html`,
     }),
 );
+
+const devMiddleware = webpackDevMiddleware(compiler, {
+    stats: {
+        colors: true,
+    },
+    publicPath: webpackConfig.output!.publicPath!,
+});
+
+app.use(devMiddleware);
 
 app.use(webpackHotMiddleware(compiler));
 

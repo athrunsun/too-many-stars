@@ -28,11 +28,14 @@ const CONFIG = {
     ENABLE_MOCK: process.env.ENABLE_MOCK === 'true',
     API_PREFIX: process.env.API_PREFIX!,
     API_TARGET: process.env.API_TARGET!,
+    BASE_URL: process.env.BASE_URL,
 };
+
+const REQUIRED_CONFIG_KEYS = ['ENABLE_MOCK', 'API_PREFIX', 'API_TARGET'];
 
 const undefinedConfigEntries = [];
 
-for (const configKey of Object.keys(CONFIG)) {
+for (const configKey of REQUIRED_CONFIG_KEYS) {
     if (CONFIG[configKey] === undefined) {
         undefinedConfigEntries.push(configKey);
     }
