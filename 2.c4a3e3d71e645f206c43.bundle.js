@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{78:function(n,e,a){"use strict";a.r(e);var i=a(0);e.default=function(){return i.createElement("div",null,"This is a dynamically loaded component.")}}}]);
