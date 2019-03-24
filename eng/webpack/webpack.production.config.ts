@@ -2,6 +2,7 @@ import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { PATHS } from '@eng/paths';
 import { CONFIG } from '@eng/config';
@@ -58,6 +59,7 @@ const config: webpack.Configuration = webpackMerge(webpackBaseConfig, {
             filename: '[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
         }),
+        new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false }),
     ],
 });
 

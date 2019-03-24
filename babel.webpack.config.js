@@ -2,8 +2,6 @@ module.exports = api => {
     // https://babeljs.io/docs/en/next/config-files#apicache
     api.cache.using(() => process.env.NODE_ENV === 'development');
 
-    const isTest = api.env('test');
-
     const plugins = [
         [
             require.resolve('babel-plugin-module-resolver'),
@@ -26,8 +24,7 @@ module.exports = api => {
             [
                 require.resolve('@babel/preset-env'),
                 {
-                    ...(isTest && { targets: { node: 'current' } }),
-                    ...(!isTest && { modules: false }),
+                    targets: { node: 'current' },
                     debug: true,
                 },
             ],

@@ -1,5 +1,5 @@
 // import '@babel/polyfill';
-import 'regenerator-runtime';
+// import 'regenerator-runtime';
 
 import * as log from 'loglevel';
 import * as React from 'react';

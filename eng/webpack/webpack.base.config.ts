@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import * as LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 
 import { PATHS } from '@eng/paths';
 import { CONFIG } from '@eng/config';
@@ -28,7 +28,6 @@ const config: webpack.Configuration = {
     resolve: {
         modules: [PATHS.appDirectory, PATHS.appNodeModules, PATHS.appSrc],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
-        plugins: [new TsconfigPathsPlugin({ configFile: PATHS.tsConfigWebpack })],
     },
 
     module: {
@@ -93,7 +92,7 @@ const config: webpack.Configuration = {
         ],
     },
 
-    plugins: [new webpack.DefinePlugin(definePluginDefinitions)],
+    plugins: [new webpack.DefinePlugin(definePluginDefinitions), new LodashModuleReplacementPlugin()],
 };
 
 export default config;
