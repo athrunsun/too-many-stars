@@ -1,6 +1,5 @@
 module.exports = api => {
-    // https://babeljs.io/docs/en/next/config-files#apicache
-    api.cache.using(() => process.env.NODE_ENV === 'development');
+    api.cache.forever();
 
     const plugins = [
         [
@@ -16,7 +15,7 @@ module.exports = api => {
         ],
         require.resolve('@babel/plugin-proposal-class-properties'),
         require.resolve('@babel/plugin-syntax-dynamic-import'),
-        require.resolve('babel-plugin-lodash'),
+        // require.resolve('babel-plugin-lodash'),
     ];
 
     return {
@@ -25,11 +24,12 @@ module.exports = api => {
                 require.resolve('@babel/preset-env'),
                 {
                     targets: { node: 'current' },
-                    debug: true,
+                    modules: 'commonjs',
+                    ignoreBrowserslistConfig: true,
                 },
             ],
             require.resolve('@babel/preset-typescript'),
-            [require.resolve('@babel/preset-react'), { development: process.env.NODE_ENV === 'development' }],
+            // [require.resolve('@babel/preset-react'), { development: process.env.NODE_ENV === 'development' }],
         ],
         plugins,
     };

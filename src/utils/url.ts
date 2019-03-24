@@ -1,4 +1,4 @@
-import * as lodash from 'lodash';
+import lodash from 'lodash';
 import urlJoin from 'proper-url-join';
 
 const createUrl = (

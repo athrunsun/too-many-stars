@@ -1,6 +1,6 @@
-import * as path from 'path';
-import * as webpack from 'webpack';
-import * as LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
+import path from 'path';
+import webpack from 'webpack';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 
 import { PATHS } from '@eng/paths';
 import { CONFIG } from '@eng/config';

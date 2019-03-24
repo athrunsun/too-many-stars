@@ -1,5 +1,4 @@
 module.exports = api => {
-    // https://babeljs.io/docs/en/next/config-files#apicache
     api.cache.using(() => process.env.NODE_ENV === 'development');
 
     const isTest = api.env('test');
@@ -28,7 +27,6 @@ module.exports = api => {
                 {
                     ...(isTest && { targets: { node: 'current' } }),
                     ...(!isTest && { modules: false }),
-                    debug: true,
                 },
             ],
             require.resolve('@babel/preset-typescript'),

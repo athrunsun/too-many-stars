@@ -1,7 +1,7 @@
-import * as webpack from 'webpack';
-import * as webpackMerge from 'webpack-merge';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpack from 'webpack';
+import webpackMerge from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { PATHS } from '@eng/paths';

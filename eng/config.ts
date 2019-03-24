@@ -1,7 +1,7 @@
-import * as lodash from 'lodash';
-import * as debug from 'debug';
-import * as path from 'path';
-import * as fs from 'fs';
+import lodash from 'lodash';
+import debug from 'debug';
+import path from 'path';
+import fs from 'fs';
 import * as dotenv from 'dotenv';
 
 import { PATHS } from '@eng/paths';

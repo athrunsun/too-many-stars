@@ -1,5 +1,4 @@
-import * as log from 'loglevel';
-import * as React from 'react';
+import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { style, cssRule } from 'typestyle';
 
@@ -103,7 +102,7 @@ class App extends React.Component<any> {
 
 if (process.env.NODE_ENV === 'development') {
     (async () => {
-        log.debug(
+        console.log(
             'You have async support if you read this instead of "ReferenceError: regeneratorRuntime is not defined" error.',
         );
     })();

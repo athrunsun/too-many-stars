@@ -1,5 +1,5 @@
-import * as path from 'path';
-import * as fs from 'fs';
+import path from 'path';
+import fs from 'fs';
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath: string) => path.resolve(appDirectory, relativePath);
@@ -16,7 +16,6 @@ const PATHS = {
     tsConfigBase: resolveApp('tsconfig.json'),
     tsConfigApp: resolveApp('tsconfig.app.json'),
     tsConfigTest: resolveApp('tsconfig.test.json'),
-    tsConfigWebpack: resolveApp('tsconfig.webpack.json'),
     assetsPath: 'assets',
     imageAssetsPath: path.join('assets', 'img'),
     fontAssetsPath: path.join('assets', 'font'),

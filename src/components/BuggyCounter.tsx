@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 class BuggyCounter extends React.Component<any, { counter: number }> {
     public state = {

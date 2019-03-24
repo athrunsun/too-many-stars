@@ -1,11 +1,11 @@
-import * as lodash from 'lodash';
-import * as debug from 'debug';
-import * as express from 'express';
-import * as webpack from 'webpack';
-import * as webpackDevMiddleware from 'webpack-dev-middleware';
-import * as webpackHotMiddleware from 'webpack-hot-middleware';
-import * as httpProxy from 'http-proxy-middleware';
-import * as history from 'connect-history-api-fallback';
+import lodash from 'lodash';
+import debug from 'debug';
+import express from 'express';
+import webpack, { Stats } from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import httpProxy from 'http-proxy-middleware';
+import history from 'connect-history-api-fallback';
 
 import webpackConfig from '@eng/webpack/webpack.devserver.config';
 import { CONFIG } from '@eng/config';
@@ -43,6 +43,10 @@ const devMiddleware = webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output!.publicPath!,
 });
 
+devMiddleware.waitUntilValid((stats: Stats) => {
+    logger(`Listening on port ${app.get('port')}...`);
+});
+
 app.use(devMiddleware);
 
 app.use(webpackHotMiddleware(compiler));
@@ -53,6 +57,4 @@ app.listen(app.get('port'), (err: any) => {
     if (err) {
         logger(err);
     }
-
-    logger(`Listening on port ${app.get('port')}...`);
 });

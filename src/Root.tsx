@@ -1,5 +1,5 @@
-import * as lodash from 'lodash';
-import * as React from 'react';
+import lodash from 'lodash';
+import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { cssRaw } from 'typestyle';
 
