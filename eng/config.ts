@@ -8,6 +8,9 @@ import { PATHS } from '@eng/paths';
 
 const logger = debug('eng:config');
 
+// Load from common `.env` file
+dotenv.config();
+
 let envFileName = `.env.${process.env.NODE_ENV}`;
 
 if (process.env.SERVE_PROD_BUNDLE_ON_DEV === 'true') {
@@ -20,7 +23,7 @@ logger(`Will load environment variables from '${envFileName}'...`);
 const envFilePath = path.resolve(PATHS.appDirectory, envFileName);
 
 if (!fs.existsSync(envFilePath)) {
-    throw new Error(`Env file '${envFilePath}' does NOT exist!`);
+    logger(`Env file '${envFilePath}' does NOT exist!`);
 }
 
 dotenv.config({ path: envFilePath });

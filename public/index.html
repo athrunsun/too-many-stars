@@ -5,13 +5,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Oh My Stars!</title>
+    <style id="first_screen_styles">
+        body {
+            margin: 0;
+        }
+        #first_screen {
+            height: 100vh;
+            width: 100vw;
+            background-color: #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
     <noscript>
         You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+        <div id="first_screen">
+            <img class="loading" alt="loading_img" src="Ripple-1s-200px.svg" />
+        </div>
+    </div>
 </body>
 
 </html>

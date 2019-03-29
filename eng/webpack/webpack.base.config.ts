@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import { PATHS } from '@eng/paths';
 import { CONFIG } from '@eng/config';
@@ -92,7 +93,17 @@ const config: webpack.Configuration = {
         ],
     },
 
-    plugins: [new webpack.DefinePlugin(definePluginDefinitions), new LodashModuleReplacementPlugin()],
+    plugins: [
+        new webpack.DefinePlugin(definePluginDefinitions),
+        new LodashModuleReplacementPlugin(),
+        new CopyWebpackPlugin([
+            {
+                from: path.resolve(PATHS.appPublicDirectory, 'Ripple-1s-200px.svg'),
+                to: PATHS.appBuildOutput,
+                toType: 'dir',
+            },
+        ]),
+    ],
 };
 
 export default config;

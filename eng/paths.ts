@@ -7,6 +7,7 @@ const resolveApp = (relativePath: string) => path.resolve(appDirectory, relative
 const PATHS = {
     appDirectory,
     appPackageJson: resolveApp('package.json'),
+    appPublicDirectory: resolveApp('public'),
     appIndexHtml: resolveApp('public/index.html'),
     appFavicon: resolveApp('public/favicon.ico'),
     appSrc: resolveApp('src'),

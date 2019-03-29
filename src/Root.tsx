@@ -1,5 +1,5 @@
 import lodash from 'lodash';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { cssRaw } from 'typestyle';
 
@@ -23,21 +23,25 @@ cssRaw(`
     }
 `);
 
-class Root extends React.Component {
-    public render() {
-        return (
-            <BrowserRouter {...!lodash.isEmpty(process.env.APP_BASE_URL) && { basename: process.env.APP_BASE_URL }}>
-                <Switch>
-                    <Redirect
-                        exact={true}
-                        from={routePathHelpers.routePathProvider.ROOT}
-                        to={routePathHelpers.routePathProvider.APP}
-                    />
-                    <Route path={routePathHelpers.routePathProvider.APP} component={App} />
-                </Switch>
-            </BrowserRouter>
-        );
-    }
+function Root() {
+    useEffect(() => {
+        // Element `#first_screen` is automatically overriden when we mount `Root` component to `#root`.
+        // (document.getElementById('first_screen') as HTMLElement).outerHTML = '';
+        (document.getElementById('first_screen_styles') as HTMLElement).outerHTML = '';
+    }, []);
+
+    return (
+        <BrowserRouter {...!lodash.isEmpty(process.env.APP_BASE_URL) && { basename: process.env.APP_BASE_URL }}>
+            <Switch>
+                <Redirect
+                    exact={true}
+                    from={routePathHelpers.routePathProvider.ROOT}
+                    to={routePathHelpers.routePathProvider.APP}
+                />
+                <Route path={routePathHelpers.routePathProvider.APP} component={App} />
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default Root;
