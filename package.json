@@ -20,7 +20,7 @@
     "dependencies": {
         "axios": "^0.21.1",
         "bulma": "^0.7.4",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.21",
         "path-to-regexp": "^3.0.0",
         "proper-url-join": "^2.0.1",
         "react": "^16.8.4",
